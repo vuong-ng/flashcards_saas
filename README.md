@@ -1,5 +1,3 @@
-Flashcard AI SaaS
-
 # Project description
 - This is an application that takes in topic description from user, then makes an API call to OpenAI model to generate the customized flashcards.
 

@@ -1,6 +1,6 @@
 # Project description
 - The AI Flashcards Generator is a cutting-edge educational tool designed to streamline the process of studying and information retention. The app allows users to input text, from which the AI generates flashcards tailored to the user's needs. By leveraging advanced AI algorithms, the app creates concise and relevant flashcards that help reinforce learning concepts through repetition. The generated flashcards can be customized and organized into different categories, allowing for a more efficient and targeted study experience.
-  Visit app: [FlashyCards](flashcards-saas-blush.vercel.app '')
+  Visit app:([flashcards-saas-blush.vercel.app](https://flashcards-saas-l8nkdv7c1-vuongs-projects-4f3141ac.vercel.app)
 
 # App functionality
 - Takes in topic description from user, then makes an API call to OpenAI model to generate the customized flashcards.

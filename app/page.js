@@ -2,9 +2,12 @@
 import Image from "next/image";
 import getStripe from '@/utils/get-stripe'
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
-import {Container, Button, Typography, AppBar, Toolbar, Box, Grid} from '@mui/material'
+import { Container, Button, Typography, AppBar, Toolbar, Box, Grid, CssBaseline} from '@mui/material'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Head from 'next/head'
 import { loadStripe } from '@stripe/stripe-js'
+// import { teal, blueGrey, lightBlue } from '@mui/material/colors';
+// import { flashcard } from './assets/card-index-dividers-svgrepo-com.svg';
 
 export default function Home() {
   const handleSubmit = async () => {
@@ -14,7 +17,6 @@ export default function Home() {
         origin: 'https://localhost:3000',
       },
     })
-
     const checkoutSessionJson = await checkoutSession.json()
     console.log(checkoutSessionJson)
     if (checkoutSession.statusCode === 500) {
@@ -30,17 +32,40 @@ export default function Home() {
       console.warn(error.message)
     }
   }
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#143366'
+      },
+      secondary: {
+        main: '#E8E9F3'
+      },
+    },
+    typography: {
+      h2: {
+        fontFamily: 'var(--font-montserrat)',
+        fontWeight: '600',
+      }
+
+    },
+  
+  });
   return (
-    <Container sx={{mx:"0", px:"0"}} width="100vw">
+    <>
+      <ThemeProvider theme={theme}>
+    <CssBaseline/>
+    <Container maxWidth={false} disableGutters sx={{ height:'100vh'}} maxHeight={false}>
       <Head>
-        <title>Flashcard SaaS </title>
+        <title >Flashcard SaaS </title>
         <meta name="description" content="Create falshcard from your text"/>
       </Head>
-
-      <AppBar position="static">
-        <Toolbar sx={{m:"0", p:"0"}} width="100%">
-          <Typography variant='h6' style={{flexGrow :1}}>
-            Flashcard SaaS
+      {/* sx={{m:"0", p:"0", width:"100%", maxWidth:"1280px"}} */}
+      {/* sx={{display:"flex", width:"100%"}}> */}
+      <AppBar position="relative">
+        <Toolbar color='primary.main'>
+          <Typography variant='h6' style={{flexGrow :1,fontWeight:'bold'}}>
+                FlashyCards
+                {/* <img src={flashcard} /> */}
             </Typography>
           <SignedOut>
             <Button variant="contained" sx={{mx:"10px"}} href="/sign-in">Login</Button>
@@ -50,26 +75,28 @@ export default function Home() {
             <UserButton/>
           </SignedIn>
         </Toolbar>
-      </AppBar>
+      </AppBar> 
       <Box sx={{
         textAlign:"center",
         mt:4,
       }}
       position="static">
         <Typography
-        variant="h2">
-          Welcome to Flashcard SaaS
+              variant="h2"
+              m={10}
+            color='#272635'>
+          Welcome to FlashyCards
           </Typography>
           <Typography variant="h5">
             {' '}
             The easiest way to create flashcards from scratch
           </Typography>
-          <Button variant="contained" color="primary" sx={{mt:2}}>
+          <Button variant="contained" color="primary" sx={{mt:2}} href="/generate">
             Get Started
           </Button>
       </Box>
       <Box sx={{my:6}} textAlign={"center"}>
-        <Typography variant="h4" components="h2">
+        <Typography variant="h4" components="h2" mb={5}>
           Features
         </Typography>
         <Grid container spacing={4}>
@@ -86,19 +113,25 @@ export default function Home() {
             <Typography>Access your flashcards from any device at any time. Study on the go with ease.</Typography>
           </Grid>     
         </Grid>
-        <Box sx={{my:6}} textAlign="center">
+        <Box sx={{my:6}} textAlign="center" >
         <Typography variant="h4" components="h2" gutterBottom>
           Pricing
         </Typography>
-        <Grid container spacing={4}>
+        <Grid container spacing={4} alignSelf={'center'} ml={'auto'} mr={'auto'}>
           <Grid item xs={12} md={6}>
             <Box
-            sx={{
-              p:3,
-              border:"1px solid",
-              borderColor:"grey.300",
-              borderRadius:2,
-            }}>
+              sx={{
+                    p:3,
+                    border:"1px solid",
+                    borderColor:"grey.300",
+                    borderRadius: 2,
+                      backgroundColor: '#B7C2D5',
+                      boxShadow: '3px 3px 1px 0px #EEC1C4',
+                    maxWidth: '600px',
+                    maxHeight:'200px'
+              
+              }}
+                    m={5}>
             <Typography variant="h5" gutterBottom>
               Basic
               </Typography>
@@ -120,8 +153,13 @@ export default function Home() {
               p:3,
               border:"1px solid",
               borderColor:"grey.300",
-              borderRadius:2,
-            }}>
+                      borderRadius: 2,
+              backgroundColor: '#B7C2D5',
+                      boxShadow: '3px 3px 1px 0px #EEC1C4',
+                      maxWidth: '600px',
+                    maxHeight:'200px'
+                    }}
+                  m={5}>
             <Typography variant="h5" gutterBottom>
               Pro
               </Typography>
@@ -131,14 +169,16 @@ export default function Home() {
               {' '}
               Unlimited flashcards and storage, with priority support.
             </Typography>
-            <Button variant="contained" color="primary">
-              Choose basic
+            <Button variant="contained" color="primary" sx={{mt:2}} onClick={handleSubmit}>
+              Choose Pro
             </Button>
             </Box>
           </Grid> 
         </Grid>
         </Box>
       </Box>
-    </Container>
+      </Container>
+    </ThemeProvider>
+      </>
   );
 }

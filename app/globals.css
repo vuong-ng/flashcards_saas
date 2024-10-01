@@ -4,4 +4,6 @@
   padding: 0;
   margin: 0;
 }
-
+.montserrat {
+  font-family: var(--font-montserrat);
+}

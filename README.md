@@ -1,22 +1,14 @@
+# Customer Support Chatbot with Llama3 model from AWS Bedrock 
 # Project description
-- The AI Flashcards Generator is a cutting-edge educational tool designed to streamline the process of studying and information retention. The app allows users to input text, from which the AI generates flashcards tailored to the user's needs. By leveraging advanced AI algorithms, the app creates concise and relevant flashcards that help reinforce learning concepts through repetition. The generated flashcards can be customized and organized into different categories, allowing for a more efficient and targeted study experience.
-  Visit app:([FlashyCards](https://flashcards-saas-l8nkdv7c1-vuongs-projects-4f3141ac.vercel.app) )
+- This project involves developing a robust customer support chatbot powered by the Llama3 model, accessible via the AWS Bedrock API. The chatbot is designed to streamline customer interactions, providing real-time responses to user queries with natural, context-aware conversations. This project focuses on integrating AWS Bedrock’s infrastructure for scalability, ensuring the chatbot can handle high traffic and adapt to diverse user needs, ultimately enhancing customer experience and operational efficiency.
 
 # App functionality
-- Takes in topic description from user, then makes an API call to OpenAI model to generate the customized flashcards.
-- The application involves subsciption plan that is made by with Stripe
-- Authentication for Log in and Log out is made with Clerk API
+- Answer questions from users
 
 # Stack:
 - Front-end: React.js, Next.js, Material UI
 - Back-end: Node.js
-- Authentication: Clerk
-- Payment service API: Stripe
+- LLMs model: Llama3 from AWS Bedrock API reference
 
 # App demo:
 ![Home Page](demo1.png)
-![Log in](demo5.png)
-![Input text](demo2.png)
-![Generate cards](demo3.png)
-![Save cards](demo4.png)
-![Display collections](demo5.png)

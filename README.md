@@ -1,14 +1,22 @@
-# Customer Support Chatbot with Llama3 model from AWS Bedrock 
+# FlashyCards 
 # Project description
-- This project involves developing a robust customer support chatbot powered by the Llama3 model, accessible via the AWS Bedrock API. The chatbot is designed to streamline customer interactions, providing real-time responses to user queries with natural, context-aware conversations. This project focuses on integrating AWS Bedrock’s infrastructure for scalability, ensuring the chatbot can handle high traffic and adapt to diverse user needs, ultimately enhancing customer experience and operational efficiency.
-
+- This application automatically creates flashcards based on user input using AI, helping to streamline study sessions. It integrates Stripe API to handle payments and utilizes Clerk API for secure user authentication, offering a smooth and seamless user experience.
+  
 # App functionality
-- Answer questions from users
+- Takes in topic description from user, then makes an API call to OpenAI model to generate the customized flashcards.
+- The application involves subsciption plan that is made by with Stripe
+- Authentication for Log in and Log out is made with Clerk API
 
 # Stack:
 - Front-end: React.js, Next.js, Material UI
 - Back-end: Node.js
-- LLMs model: Llama3 from AWS Bedrock API reference
+- Authentication: Clerk API
+- Payment Service: Stripe API
 
 # App demo:
 ![Home Page](demo1.png)
+![Log in](demo5.png)
+![Input text](demo2.png)
+![Generate cards](demo3.png)
+![Save collections](demo4.png)
+![Display collections](demo6.png)

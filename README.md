@@ -12,4 +12,11 @@
 - Back-end: Node.js
 - Authentication: Clerk
 - Payment service API: Stripe
-  
+
+# App demo:
+![Home Page](demo1.png)
+![Log in](demo5.png)
+![Input text](demo2.png)
+![Generate cards](demo3.png)
+![Save cards](demo4.png)
+![Display collections](demo5.png)
